@@ -9,7 +9,7 @@
 \usepackage{upquote}
 
 \title{Ohmage Installation and Administration Manual for Fedora}
-\subtitle{Version 2.15-0}
+\subtitle{Version 2.16-0}
 
 
 \begin{document}
@@ -24,7 +24,8 @@ Communication about the Ohmage software itself is easiets through github:
 \section*{About}
 
 \noindent The following instructions will deploy a server with \texttt{ohmage
-2.15}. For this version of Ohmage, builds are available for Fedora versions 17 and 18.
+2.16}. For this version of Ohmage, builds are available for Fedora versions 18
+and 19.
 The software consists of two packages:
 
 \begin{itemize}
@@ -56,7 +57,7 @@ install any required dependencies if not installed yet.
 
 \section{Installation}
 
-The current version of ohmage has builds available for Fedora 17 and 18.
+The current version of ohmage has builds available for Fedora 18 and 19.
 If you already have a Fedora system set up, you can skip this section and
 move to section \ref{preparations}.
 If you do not have a local Fedora system available, you can still use
@@ -73,7 +74,7 @@ you can install Fedora and Ohmage safely on top of an existing system.
 \subsection{Preparations}
 \label{preparations}
 
-Before installation, make sure you are running Fedora 17 or 18, and that your
+Before installation, make sure you are running Fedora 18 or 19, and that your
 package are up to date, and that \texttt{wget} is installed:
 
 \begin{verbatim}
@@ -91,20 +92,20 @@ packages that ship with fedora. Anything previously installed through
 \subsection{Adding the Ohmage Repository}
 
 We first add the repository containing the ohmage packages to our system. On
-Fedora 18:
+Fedora 19:
 
 \begin{verbatim}
   cd /etc/yum.repos.d/
   sudo wget http://download.opensuse.org/repositories/\
-    home:jeroenooms:ohmage-2.15/Fedora_18/home:jeroenooms:ohmage-2.15.repo
+    home:jeroenooms:ohmage-2.16/Fedora_19/home:jeroenooms:ohmage-2.16.repo
 \end{verbatim}
 
-\noindent Instead, if you are running Fedora 17:
+\noindent Instead, if you are running Fedora 18:
 
 \begin{verbatim}
   cd /etc/yum.repos.d/
   sudo wget http://download.opensuse.org/repositories/\
-    home:jeroenooms:ohmage-2.15/Fedora_17/home:jeroenooms:ohmage-2.15.repo
+    home:jeroenooms:ohmage-2.16/Fedora_18/home:jeroenooms:ohmage-2.16.repo
 \end{verbatim}
 
 \subsection{Installing the server}
@@ -168,7 +169,7 @@ For more info see the section \ref{ssl} of this manual.
 
 \subsection{Tomcat in Fedora}
 
-Fedora 17 and 18 ship with Tomat7. The Tomcat server hosts the AJP1.3 protocol
+Fedora 18 and 19 ship with Tomat7. The Tomcat server hosts the AJP1.3 protocol
 on port 8009. Actual incoming HTTP and HTTPS are handled by Apache2 and proxied
 to Tomcat. To manage the Tomcat server do:
 
@@ -321,7 +322,14 @@ for example \url{http://www.dnsgoodies.com/}.
 
 \subsection{Other Ohmage files}
 
-Photos, videos and documents uploaded by users are stored in
+On the Fedora installation, the ohmage configuration file containing some
+hardcoded server information can be found at:
+
+\begin{verbatim}
+    /etc/ohmage.conf
+\end{verbatim}
+
+\noindent Usually this file should not be edited. Photos, videos and documents uploaded by users are stored in
 
 \begin{verbatim}
     /var/lib/ohmage/images/
